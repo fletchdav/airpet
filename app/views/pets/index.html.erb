@@ -1,13 +1,9 @@
  <div class="main_container">
   <div class="cards">
     <div class="row">
-      <% 6.times do |i| %>
+      <% @pets.each do |pet| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', pet: @pets[0] %>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card2'%>
+          <%= render 'shared/card', pet: pet %>
         </div>
       <% end %>
     </div>
