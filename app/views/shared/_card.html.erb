@@ -1,6 +1,6 @@
 <div class="card">
   <%= link_to pet_path(pet) do %>
-    <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%), url(https://www.wikichat.fr/wp-content/uploads/sites/2/comment-soigner-une-plaie-dun-chat.jpg);">
+    <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 50%), url(<%= pet.picture %>);">
       <div class="card-category">
         <h1><%= pet.name %></h1>
       </div>
