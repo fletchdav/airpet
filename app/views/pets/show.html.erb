@@ -1,24 +1,49 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1><%= @pet.name %></h1>
-      <p> <%= cl_image_tag(@pet.photo,
-      width: 800, height: 600, crop: :fill) %> </p>
 
+      <h1 class="listing-headline"><%= @pet.title %></h1>
 
+      <div class="listing-overview">
+        <%=@pet.description%>
+      </div>
+      <div class="animal-description">
+        <%=@pet.name%>
+        <%=@pet.species%>
+        <%=@pet.gender%>
+        <%=@pet.age%>
+        <%=@pet.favorite_food%>
+        <%=@pet.character%>
+      </div>
+      <div class="booking-details">
+        <%=@pet.address%>
+        <%=@pet.price%>
+        <%=@pet.picture%>
+        <%=@pet.instructions%>
+      </div>
+      <div class="owner-presentation">
 
-<!--       <ul>
-        <% @pet.doses.each do |dose| %>
-          <li><%= dose.description %> de <%= dose.ingredient.name %> </li>
-        <% end %>
-      </ul>
-      <%= simple_form_for [@pet, @dose] do |f| %>
-        <%= f.input :description, placeholder: "6cl" %>
-        <%= f.association :ingredient, prompt: "Select an ingredient" %>
-        <%= f.submit "Add an ingredient", class: "btn btn-primary" %>
-      <% end %> -->
-
+        Name of the owner
+      </div>
+      <div class="booking-map">
+        Location map
+      </div>
+      <div class="all-pet-reviews">
+        <div class="pet-review">
+        J'ai adoré passer une semaine avec Barnabé. Il est très affectueux.
+        </div>
+        <div class="pet-review">
+        Tigrou est vraiment bien élevé. C'est un plaisir de se promener avec lui en ville.
+        </div>
+      </div>
+      <div class="side-quote-bar">
+        Quote
+      </div>
       <%= link_to 'Back', pets_path %>
+
     </div>
   </div>
 </div>
+
+
+
