@@ -10,6 +10,8 @@ gem 'redis'
 
 gem 'devise'
 
+ruby '2.3.4'
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
