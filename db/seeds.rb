@@ -8,7 +8,7 @@
 require 'faker'
 
 species = ["Chat","Chien","Tigre","Lion","Panda"]
-pictures = { "Chat" => "https://unsplash.com/photos/KHBvwAnWFmc", "Chien" => "https://unsplash.com/photos/mx0DEnfYxic","Tigre" => "https://unsplash.com/photos/IDO_a-dxrCY", "Lion" => "https://unsplash.com/photos/DOrhbkYbFkg","Panda" => "https://unsplash.com/photos/fu3UTG0rUfk" }
+pictures = { "Chat" => "https://fr.cdn.v5.futura-sciences.com/buildsv6/images/wide1920/0/0/d/00dd1479a5_108485_chat-domestique.jpg", "Chien" => "https://www.wanimo.com/veterinaire/images/articles/chien/chiot-prenom.jpg","Tigre" => "https://www.out-the-box.fr/wp-content/uploads/2016/05/Faits-insolites-tigres.jpg", "Lion" => "http://unfetteredpotential.com/wp-content/uploads/2013/05/Lion.png","Panda" => "https://www.thelocal.de/userdata/images/article/fa6fd5014ccbd8f4392f716473ab6ff354f871505d9128820bbb0461cce1d645.jpg" }
 gender = ["M","F"]
 character = ["Joyeux","Timide","Curieux","Lunatique","Ennuyant","Orgueilleux","Calme","Plaisant","Intelligent","Peureux","Vantard","Calculateur","Opportuniste"]
 
