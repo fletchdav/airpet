@@ -1,0 +1,51 @@
+<div class="dashboard-header-wrapper">
+  <div class="container dashboard-header-container text-center">
+    <div class="tabs">
+      <a class="tab active" id="tabresa1" href="#">
+        <h3>Mes réservations (r)</h3>
+      </a>
+      <a class="tab" id="tabresa2" href="#">
+        <h3>Mes réservations (o)</h3>
+      </a>
+      <a class="tab" id="tabpets" href="#">
+        <h3>Mes animaux</h3>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="resa1">
+  <h1>Hello, je suis le bloc resa1</h1>
+</div>
+
+<div class="container hidden" id="resa2">
+  <h1>Hello, je suis le bloc resa2</h1>
+</div>
+
+<div class="container hidden" id="pets">
+  <% @pets.each do |pet| %>
+    <div class="pet">
+      <%= image_tag pet.picture, class: "pet-image" %>
+      <div class='pet-body'>
+        <h3><%= pet.name %></h3>
+        <p><%= pet.price %> €</p>
+      </div>
+      <div class="pet-body">
+        <h3><%= pet.title %></h3>
+        <p><%= pet.description %> €</p>
+      </div>
+      <ul class="list-inline pet-controls">
+        <li>
+          <%= link_to edit_pet_path(pet) do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+        <li>
+        <li>
+          <%= link_to pet_path(pet), :method => 'delete' do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        <li>
+      </ul>
+    </div>
+  <% end %>
+</div>
