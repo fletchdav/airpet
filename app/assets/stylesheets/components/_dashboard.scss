@@ -1,0 +1,24 @@
+.dashboard-header-wrapper {
+  background: #5e5e5e;
+}
+.dashboard-header-container img {
+  width: 100px;
+  // border-radius: 50%;
+}
+.dashboard-header-container h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+.dashboard-header-container h2 {
+  color: white;
+  opacity: 0.4;
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+}
+.dashboard-header-infos {
+  padding: 20px 0;
+}
