@@ -26,13 +26,13 @@
   <% @pets.each do |pet| %>
     <div class="pet">
       <%= image_tag pet.picture, class: "pet-image" %>
-      <div class='pet-body'>
+      <div class='pet-identity'>
         <h3><%= pet.name %></h3>
-        <p><%= pet.price %> €</p>
+        <p><%= pet.title %></p>
+        <h4><%= pet.price %> €</h4>
       </div>
-      <div class="pet-body">
-        <h3><%= pet.title %></h3>
-        <p><%= pet.description %> €</p>
+      <div class="pet-details">
+        <p><%= pet.description %></p>
       </div>
       <ul class="list-inline pet-controls">
         <li>
