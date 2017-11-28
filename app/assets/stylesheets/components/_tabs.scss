@@ -1,5 +1,5 @@
 .tabs {
-  background: #5e5e5e;
+  background: #F4F4F4;
   display: flex;
   padding: 10px 10px 0 10px;
 
@@ -25,10 +25,11 @@
 }
 
 .tab {
-  background: #9e9494;
+  background: #FCCF4D;
   flex: 0 0 25%;
   text-align: center;
   padding: 15px 0;
+  opacity:0.7;
 }
 
 .tab.active {
