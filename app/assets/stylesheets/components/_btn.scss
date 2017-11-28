@@ -1,0 +1,17 @@
+
+.btn-dec {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #FCCF4D;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-dec:hover {
+  opacity: 1;
+  background: #FFCD19;
+  text-decoration: none;
+  color: white;
+}
