@@ -1,5 +1,7 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :index
+
   def index
     @pets = Pet.all
   end
@@ -9,10 +11,12 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    authorize @pet
   end
 
   def create
     @pet = Pet.new(pet_params)
+    authorize @pet
     @pet.user = current_user
     if @pet.save
       redirect_to pet_path(@pet)
@@ -38,6 +42,7 @@ class PetsController < ApplicationController
   private
   def set_pet
     @pet = Pet.find(params[:id])
+    authorize @pet
   end
 
   def pet_params
