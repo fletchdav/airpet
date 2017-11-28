@@ -11,7 +11,9 @@
         <div class=" animal-photo-description flexbox">
 
           <div class="animal-photo inner-section">
-            <img src="<%=@pet.picture%>" id="animal-main-photo" height="200" alt="<%=@pet.description%> à louer" />
+            <%= cl_image_tag @pet.photo, id:"animal-main-photo", height: 200, width: 480, crop: :fill %>
+            <!-- # , id: "animal-main-photo", height="200" %> -->
+            <!-- <img src="" id="animal-main-photo" height="200" alt="<%=@pet.description%> à louer" /> -->
           </div>
 
           <div class="animal-description inner-section">
