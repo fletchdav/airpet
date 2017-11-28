@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1 class="text-center">j'ajoute mon animal</h1>
+      <%= simple_form_for (@pet) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :name %>
+        <%= f.input :species %>
+        <%= f.input :gender %>
+        <%= f.input :age %>
+        <%= f.input :favorite_food %>
+        <%= f.input :character %>
+        <%= f.input :address %>
+        <%= f.input :price %>
+        <%= f.input :picture %>
+        <%= f.input :instructions %>
+        <%= f.submit "add a pet", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
