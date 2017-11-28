@@ -25,7 +25,7 @@
 <div class="container hidden" id="pets">
   <% @pets.each do |pet| %>
     <div class="pet">
-      <%= image_tag (cl_image_path pet.photo), class: "pet-image" %>
+      <%= cl_image_tag pet.photo, class: "pet-image" %>
       <div class='pet-identity'>
         <h3><%= pet.name %></h3>
         <p><%= pet.title %></p>
