@@ -4,40 +4,27 @@
 
         <h1 class="listing-headline"><%= @pet.title %></h1>
 
-        <div class="listing-overview">
-          <h2> <%=@pet.description%> </h2>
+        <div class="animal-summary">
+          <div class="row"> <%=@pet.description%> </div>
         </div>
 
-        <div class="animal-description section">
-          <h2> Description de l'animal </h2>
-          <div class="row"> Nom: <%=@pet.name%> </div>
-          <div class="row"> Espèce: <%=@pet.species%> </div>
-          <div class="row"> Sexe: <%=@pet.gender%> </div>
-          <div class="row"> Age: <%=@pet.age%> </div>
-          <div class="row"> Caractère: <%=@pet.character%> </div>
-          <div class="row"> Photo: </div>
-          <img src="<%=@pet.picture%>" id="animal-main-photo" height="200" alt="<%=@pet.description%> à louer" />
-        </div>
+        <div class=" animal-photo-description flexbox">
 
-        <div class="booking-details section">
-          <h2> Détails pratiques </h2>
-          <div class="row"> Adresse: <%=@pet.address%> </div>
-          <div class="row"> Prix: <%=@pet.price%> euros / jour </div>
-          <div class="row"> Nourriture favorite: <%=@pet.favorite_food%> </div>
-          <div class="row"> Instructions: <%=@pet.instructions%> </div>
-        </div>
-
-        <div class="owner-presentation section">
-          <h2> A propos du propriétaire </h2>
-          <div class="row">Nom du propriétaire</div>
-          <p> Présentation du propriétaire </p>
-        </div>
-
-        <div class="map-section section">
-          <h2> Où trouver <%=@pet.name%> ? </h2>
-          <div id="map">
-            Carte
+          <div class="animal-photo inner-section">
+            <img src="<%=@pet.picture%>" id="animal-main-photo" height="200" alt="<%=@pet.description%> à louer" />
           </div>
+
+          <div class="animal-description inner-section">
+            <h2> Description </h2>
+            <div class="row"> Nom: <%=@pet.name%> </div>
+            <div class="row"> Espèce: <%=@pet.species%> </div>
+            <div class="row"> Sexe: <%=@pet.gender%> </div>
+            <div class="row"> Age: <%=@pet.age%> </div>
+            <div class="row"> Caractère: <%=@pet.character%> </div>
+            <div class="row"> Nourriture favorite: <%=@pet.favorite_food%> </div>
+            <div class="row"> Instructions: <%=@pet.instructions%> </div>
+          </div>
+
         </div>
 
         <div class="all-pet-reviews section">
@@ -50,6 +37,13 @@
           </div>
         </div>
 
+        <div class="map-section section">
+          <h2> Où retrouver <%=@pet.name%> ? </h2>
+          <div id="map">
+            Carte
+          </div>
+        </div>
+
       <div class="back-link">
         <%= link_to 'Retour', pets_path %>
       </div>
@@ -59,12 +53,24 @@
       <div class="listing-sidebar">
 
         <div class="side-quote-bar">
-          <h2> Réserver <%=@pet.name%> </h2>
+          <h2 > Réserver <%=@pet.name%> </h2>
           <%= simple_form_for(Pet.new) do |f| %>
             <%= f.input :name, label: 'Date de début' %>
             <%= f.input :name, label: 'Date de fin' %>
-            <%= f.submit "Réserver" %>
+            <%= f.submit "Réserver", class: "btn btn-dec" %>
           <% end %>
+        </div>
+
+        <div class="booking-details side-section">
+          <h2> Détails pratiques </h2>
+          <div class="row"> Adresse: <%=@pet.address%> </div>
+          <div class="row"> Prix: <%=@pet.price%> euros / jour </div>
+        </div>
+
+        <div class="owner-presentation side-section">
+          <h2> A propos du propriétaire </h2>
+          <div class="row">Nom du propriétaire</div>
+          <p> Présentation du propriétaire </p>
         </div>
 
       </div>
