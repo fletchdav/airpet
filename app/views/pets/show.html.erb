@@ -1,49 +1,94 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<div class="main-container">
 
-      <h1 class="listing-headline"><%= @pet.title %></h1>
+      <div class="listing-main-container">
 
-      <div class="listing-overview">
-        <%=@pet.description%>
-      </div>
-      <div class="animal-description">
-        <%=@pet.name%>
-        <%=@pet.species%>
-        <%=@pet.gender%>
-        <%=@pet.age%>
-        <%=@pet.favorite_food%>
-        <%=@pet.character%>
-      </div>
-      <div class="booking-details">
-        <%=@pet.address%>
-        <%=@pet.price%>
-        <%=@pet.picture%>
-        <%=@pet.instructions%>
-      </div>
-      <div class="owner-presentation">
+        <h1 class="listing-headline"><%= @pet.title %></h1>
 
-        Name of the owner
-      </div>
-      <div class="booking-map">
-        Location map
-      </div>
-      <div class="all-pet-reviews">
-        <div class="pet-review">
-        J'ai adoré passer une semaine avec Barnabé. Il est très affectueux.
+        <div class="listing-overview">
+          <h2> <%=@pet.description%> </h2>
         </div>
-        <div class="pet-review">
-        Tigrou est vraiment bien élevé. C'est un plaisir de se promener avec lui en ville.
-        </div>
-      </div>
-      <div class="side-quote-bar">
-        Quote
-      </div>
-      <%= link_to 'Back', pets_path %>
 
-    </div>
-  </div>
+        <div class="animal-description section">
+          <h2> Description de l'animal </h2>
+          <div class="row"> Nom: <%=@pet.name%> </div>
+          <div class="row"> Espèce: <%=@pet.species%> </div>
+          <div class="row"> Sexe: <%=@pet.gender%> </div>
+          <div class="row"> Age: <%=@pet.age%> </div>
+          <div class="row"> Caractère: <%=@pet.character%> </div>
+          <div class="row"> Photo: </div>
+          <img src="<%=@pet.picture%>" id="animal-main-photo" height="200" alt="<%=@pet.description%> à louer" />
+        </div>
+
+        <div class="booking-details section">
+          <h2> Détails pratiques </h2>
+          <div class="row"> Adresse: <%=@pet.address%> </div>
+          <div class="row"> Prix: <%=@pet.price%> euros / jour </div>
+          <div class="row"> Nourriture favorite: <%=@pet.favorite_food%> </div>
+          <div class="row"> Instructions: <%=@pet.instructions%> </div>
+        </div>
+
+        <div class="owner-presentation section">
+          <h2> A propos du propriétaire </h2>
+          <div class="row">Nom du propriétaire</div>
+          <p> Présentation du propriétaire </p>
+        </div>
+
+        <div class="map-section section">
+          <h2> Où trouver <%=@pet.name%> ? </h2>
+          <div id="map">
+            Carte
+          </div>
+        </div>
+
+        <div class="all-pet-reviews section">
+          <h2> Commentaires </h2>
+          <div class="pet-review">
+          J'ai adoré passer une semaine avec <%=@pet.name%>. Il est très affectueux.
+          </div>
+          <div class="pet-review">
+          <%=@pet.name%> est vraiment bien élevé. C'est un plaisir de se promener avec lui en ville.
+          </div>
+        </div>
+
+      <div class="back-link">
+        <%= link_to 'Retour', pets_path %>
+      </div>
+
+      </div>
+
+      <div class="listing-sidebar">
+
+        <div class="side-quote-bar">
+          <h2> Réserver <%=@pet.name%> </h2>
+          <%= simple_form_for(Pet.new) do |f| %>
+            <%= f.input :name, label: 'Date de début' %>
+            <%= f.input :name, label: 'Date de fin' %>
+            <%= f.submit "Réserver" %>
+          <% end %>
+        </div>
+
+      </div>
+
 </div>
 
+<!-- Gmaps js: building the map -->
+<script>
+  function initMap() {
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 52.5206, lng: 13.4098},
+      scrollwheel: false,
+      zoom: 8
+    });
+  }
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Gmaps JavaScript -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
+</script>
 
 
