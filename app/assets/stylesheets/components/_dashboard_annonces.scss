@@ -18,10 +18,10 @@
 /* Identity design */
 .user-identity {
   flex: 1 1 auto;
-  width: 50px;
+  width: 100px;
   h3 {
     font-weight: bold;
-    font-size: 23px;
+    font-size: 20px;
     margin-top: 0;
   }
   p {
@@ -45,7 +45,7 @@
   }
   h3 {
     font-weight: bold;
-    font-size: 23px;
+    font-size: 20px;
     margin-top: 0;
   }
 }
@@ -67,14 +67,21 @@
 }
 
 .resa-status {
+  width: 100px;
   h3 {
     font-weight: bold;
-    font-size: 23px;
+    font-size: 20px;
     margin-top: 0;  }
-p {
+  p {
     font-size: 17px;
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+  .validee {
+    color: green;
+  }
+  .attente {
+    color: #FFD23A;
   }
 }
 
