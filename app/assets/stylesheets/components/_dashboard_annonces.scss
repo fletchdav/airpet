@@ -1,0 +1,96 @@
+.resa {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  margin: 10px 0;
+}
+
+/* user avatar */
+.resa-avatar {
+  border-radius: 50%;
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+/* Identity design */
+.user-identity {
+  flex: 1 1 auto;
+  width: 50px;
+  h3 {
+    font-weight: bold;
+    font-size: 23px;
+    margin-top: 0;
+  }
+  p {
+    font-weight: lighter;
+    color: #999999;
+    margin-bottom: 0;
+  }
+}
+
+
+/* Details design */
+.resa-details {
+  flex: 1 1 auto;
+  padding-left: 10px;
+  p {
+    font-weight: lighter;
+    font-size: 15px;
+    color: #999999;
+    margin-bottom: 0;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 23px;
+    margin-top: 0;
+  }
+}
+
+
+.pet-image-small {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.resa-details-pet {
+  display: flex;
+  align-items: center;
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.resa-status {
+  h3 {
+    font-weight: bold;
+    font-size: 23px;
+    margin-top: 0;  }
+p {
+    font-size: 17px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.resa-actions {
+  ul {
+    list-style: none;
+  }
+  a {
+    padding: 0 20px;
+    font-size: 17px;
+    color: black;
+  }
+}
+
+/* Hover effects */
+.resa:hover {
+  background: white;
+  cursor: pointer;
+}
