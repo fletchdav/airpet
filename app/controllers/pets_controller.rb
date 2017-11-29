@@ -3,10 +3,24 @@ class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @pets = Pet.all
+    @pets = Pet.where.not(latitude: nil, longitude: nil)
+
+    @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        infoWindow: { content: render_to_string(partial: "/pets/map_box", locals: { pet: pet }) }
+      }
+    end
   end
 
   def show
+    @marker =
+      [{
+        lat: @pet.latitude,
+        lng: @pet.longitude,
+        infoWindow: { content: render_to_string(partial: "/pets/map_box", locals: { pet: @pet }) }
+      }]
   end
 
   def new

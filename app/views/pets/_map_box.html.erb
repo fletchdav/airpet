@@ -1,0 +1,5 @@
+<%= link_to pet_path(pet) do %>
+  <h1><%= pet.name %></h1>
+  <h2><%= pet.age %> ans</h2>
+  <%= cl_image_tag pet.photo, height: 100, width: 100 %>
+<% end %>
