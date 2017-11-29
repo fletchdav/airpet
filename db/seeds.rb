@@ -22,6 +22,7 @@ gender = ["M","F"]
 character = ["Joyeux","Timide","Curieux","Lunatique","Ennuyant","Orgueilleux","Calme","Plaisant","Intelligent","Peureux","Vantard","Calculateur","Opportuniste"]
 instruction = ["Nourrir matin midi et soir","Sortir le matin pour une petite promenade","Ne pas oublier sa sieste après le déjeuner","Chantez lui une chanson en cas d'insomnie la nuit","N'aime pas les céréales au petit dejeuner"]
 
+address_paris = ["6 rue La Boétie, Paris","3 Place de la Madeleine, Paris","27 Square de la Couronne, Paris","120 rue Oberkampf, Paris","37 Rue des Volontaires, Paris","66 Rue des Cévennes, Paris","86 Rue de Miromesnil, Paris","75 Rue Caulaincourt, Paris","22 Avenue de Choisy, Paris","61 Rue de la Grange aux Belles, Paris","89 Rue Haxo, Paris","22 Rue Myrha, Paris","96 Rue de Rivoli, Paris","204 Bis Rue de la Croix Nivert, Paris","69 Avenue Victor Hugo, Paris","29 Avenue du Général Leclerc, Paris","20 Rue de l'Est, Paris","39 Rue des Lilas, Paris","107 Avenue du Général Michel Bizot, Paris"]
 
 #generate users
 5.times do
@@ -40,7 +41,7 @@ end
   new_food = Faker::Food.dish
   new_character = character.sample
   new_url = pictures[new_species].sample
-  new_address = "#{Faker::Address.street_address}, #{Faker::Address.city}"
+  new_address = address_paris.sample
   new_title = "#{new_species} #{new_character} de #{new_age.to_s} ans"
   new_description = "#{new_name} est un #{new_species} #{new_character} de #{new_age.to_s} ans. Il habite au #{new_address} et son plat préféré est le #{new_food}"
   new_pet = Pet.new(
@@ -55,7 +56,7 @@ end
     address: new_address,
     price: rand(10..100),
     instructions: instruction.sample,
-    user_id: rand(User.all.length),
+    user_id: rand(1..User.all.length),
   )
   new_pet.remote_photo_url = new_url
   new_pet.save

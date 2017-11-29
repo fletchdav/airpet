@@ -22,6 +22,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'faker'
+gem "geocoder"
 
 group :development, :test do
   gem 'pry-byebug'
