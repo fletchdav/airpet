@@ -51,6 +51,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     redirect_to users_dashboard_path
+    # redirect_to users_dashboard_path(:anchor => "pets-tab")
   end
 
 

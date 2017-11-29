@@ -25,6 +25,11 @@ instruction = ["Nourrir matin midi et soir","Sortir le matin pour une petite pro
 address_paris = ["6 rue La Boétie, Paris","3 Place de la Madeleine, Paris","27 Square de la Couronne, Paris","120 rue Oberkampf, Paris","37 Rue des Volontaires, Paris","66 Rue des Cévennes, Paris","86 Rue de Miromesnil, Paris","75 Rue Caulaincourt, Paris","22 Avenue de Choisy, Paris","61 Rue de la Grange aux Belles, Paris","89 Rue Haxo, Paris","22 Rue Myrha, Paris","96 Rue de Rivoli, Paris","204 Bis Rue de la Croix Nivert, Paris","69 Avenue Victor Hugo, Paris","29 Avenue du Général Leclerc, Paris","20 Rue de l'Est, Paris","39 Rue des Lilas, Paris","107 Avenue du Général Michel Bizot, Paris"]
 
 #generate users
+User.create(
+  email: "fletchdav@gmail.com",
+  password: "airpet",
+  picture: "https://avatars0.githubusercontent.com/u/31994489?s=400&v=4"
+)
 5.times do
   User.create(
     email: Faker::Internet.email,
@@ -65,19 +70,24 @@ end
 #generate bookings
 pets = Pet.all
 pets.each do |pet|
-  user = User.all.sample
-  start_date = Date.new(2017, 4, rand(20) + 1)
-  end_date = start_date + rand(7) + 1
-  total_price = pet.price * (end_date - start_date).to_i
-  validated = rand < 0.5 ? false : true
-  Booking.create(pet: pet, user: user, start_date: start_date, end_date: end_date, total_price: total_price, validated: validated)
-  for i in (1..3) do
+  if rand < 0.5
     user = User.all.sample
-    start_date = Date.new(2018, i, rand(20) + 1)
+    start_date = Date.new(2017, 4, rand(20) + 1)
     end_date = start_date + rand(7) + 1
     total_price = pet.price * (end_date - start_date).to_i
     validated = rand < 0.5 ? false : true
     Booking.create(pet: pet, user: user, start_date: start_date, end_date: end_date, total_price: total_price, validated: validated)
+
+    for i in (1..3) do
+      user = User.all.sample
+      start_date = Date.new(2018, i, rand(20) + 1)
+      end_date = start_date + rand(7) + 1
+      total_price = pet.price * (end_date - start_date).to_i
+      validated = rand < 0.5 ? false : true
+      Booking.create(pet: pet, user: user, start_date: start_date, end_date: end_date, total_price: total_price, validated: validated)
+    end
+
+    pet.availability = false
   end
 end
 
