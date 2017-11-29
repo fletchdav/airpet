@@ -56,9 +56,9 @@
 
         <div class="side-quote-bar">
           <h2 > Réserver <%=@pet.name%> </h2>
-          <%= simple_form_for(Pet.new) do |f| %>
-            <%= f.input :name, label: 'Date de début' %>
-            <%= f.input :name, label: 'Date de fin' %>
+          <%= simple_form_for [@pet, Booking.new] do |f| %>
+            <%= f.input :start_date, label: 'Date de début' %>
+            <%= f.input :end_date, label: 'Date de fin' %>
             <%= f.submit "Réserver", class: "btn btn-dec" %>
           <% end %>
         </div>

@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :pets
+  resources :pets do
+    resources :bookings, only: [:create]
+  end
 
-  #  à affiner
-  resources :bookings
+  resources :bookings, only: [:destroy]
 
   get 'users/dashboard', to: "users#dashboard"
 end
