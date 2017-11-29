@@ -5,7 +5,7 @@
         <h3>Mes réservations (r)</h3>
       </a>
       <a class="tab" id="tabresa2" href="#">
-        <h3>Mes réservations (o)</h3>
+        <h3>Mes annonces</h3>
       </a>
       <a class="tab" id="tabpets" href="#">
         <h3>Mes animaux</h3>
@@ -16,10 +16,45 @@
 
 <div class="container" id="resa1">
   <h1>Hello, je suis le bloc resa1</h1>
-</div>
+  </div>
 
-<div class="container hidden" id="resa2">
-  <h1>Hello, je suis le bloc resa2</h1>
+  <div class="container hidden" id="resa2">
+    <div class="resa">
+      <%= image_tag "avatar.png", class: "resa-avatar" %>
+      <div class="user-identity">
+        <h3>fletchdav@gmail.com</h3>
+        <p>29 novembre</p>
+      </div>
+      <div class="resa-details">
+        <div class="resa-details-pet">
+          <%= cl_image_tag "qravmzy6k7pcxo5dk7ay", class: "pet-image-small" %>
+        </div>
+        <div class="resa-details-dates">
+          <h3>Gaston</h3>
+          <p><strong>29 novembre - 10 décembre</strong></p>
+          <p>11 jours</p>
+        </div>
+      </div>
+      <div class="resa-status">
+        <h3>en attente</h3>
+        <p>Prix total</p>
+        <p><strong>189 €</strong></p>
+      </div>
+      <div class="resa-actions">
+        <ul>
+          <li>
+            <%= link_to "" do %>
+              <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "" do %>
+              <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
 </div>
 
 <div class="container hidden" id="pets">
