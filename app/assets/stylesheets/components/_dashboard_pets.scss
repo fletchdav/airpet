@@ -68,6 +68,8 @@
 /* Hover effects */
 .pet:hover {
   background: white;
-  cursor: pointer;
+  .pet-image {
+    cursor: pointer;
+  }
 }
 .pet:hover .pet-controls-hidden a { color: #E6E6E6 }

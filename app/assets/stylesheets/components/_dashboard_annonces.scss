@@ -35,7 +35,8 @@
 /* Details design */
 .resa-details {
   display: flex;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  width: 570px;
   padding-left: 30px;
   p {
     font-weight: lighter;
@@ -50,6 +51,10 @@
   }
 }
 
+
+.resa-details-dates {
+    vertical-align: center;
+  }
 
 .pet-image-small {
   border-radius: 10px;

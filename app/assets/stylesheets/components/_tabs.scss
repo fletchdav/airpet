@@ -1,7 +1,12 @@
 .tabs {
+  margin-top: 10px;
   background: #F4F4F4;
   display: flex;
-  padding: 10px 10px 0 10px;
+  padding: 10px 0px;
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
 
   a {
     color: white;
@@ -26,9 +31,9 @@
 
 .tab {
   background: #FCCF4D;
-  flex: 0 0 25%;
+  flex: 1 1 auto;
   text-align: center;
-  padding: 15px 0;
+  padding: 20px 0px;
   opacity:0.7;
 }
 
