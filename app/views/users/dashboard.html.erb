@@ -1,21 +1,21 @@
 <div class="dashboard-header-wrapper">
   <div class="container dashboard-header-container text-center">
     <div class="tabs">
-      <a class="tab active" id="tabresa1" href="#">
-        <h3>Mes réservations (r)</h3>
+      <a class="tab" id="tabresa1" href="#">
+        <h3>Mes adoptions</h3>
       </a>
       <a class="tab" id="tabresa2" href="#">
-        <h3>Mes annonces</h3>
+        <h3>Mes demandes</h3>
       </a>
-      <a class="tab" id="tabpets" href="#">
+      <a class="tab active" id="tabpets" href="#">
         <h3>Mes animaux</h3>
       </a>
     </div>
   </div>
 </div>
 
-<div class="container" id="resa1">
-  <h1>Hello, je suis le bloc resa1</h1>
+<div class="container hidden" id="resa1">
+  <h1>Pas d'adoption pour l'instant</h1>
   </div>
 
   <div class="container hidden" id="resa2">
@@ -65,11 +65,11 @@
     <% end %>
 </div>
 
-<div class="container hidden" id="pets">
+<div class="container" id="pets">
   <% @pets.each do |pet| %>
     <div class="pet">
       <div>
-        <%= link_to edit_pet_path(pet) do %>
+        <%= link_to pet_path(pet) do %>
           <%= cl_image_tag pet.photo, class: "pet-image" %>
         <% end %>
       </div>
