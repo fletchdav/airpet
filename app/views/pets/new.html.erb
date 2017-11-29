@@ -2,23 +2,23 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1 class="text-center">j'ajoute mon animal</h1>
+      <h1 class="text-center">J'ajoute mon animal</h1>
       <%= simple_form_for (@pet) do |f| %>
-        <%= f.input :title %>
-        <%= f.input :description %>
-        <%= f.input :name %>
-        <%= f.input :species %>
-        <%= f.input :gender %>
-        <%= f.input :age %>
-        <%= f.input :favorite_food %>
-        <%= f.input :character %>
-        <%= f.input :address %>
-        <%= f.input :price %>
-        <%= f.input :picture %>
-        <%= f.input :instructions %>
-        <%= f.input :photo %>
+        <%= f.input :title, label: 'Titre de votre annonce' %>
+        <%= f.input :name, label: "Nom de l'animal" %>
+        <%= f.input :description, label: "Description de l'animal" %>
+        <%= f.input :species, label: 'Espèce' %>
+        <%= f.input :gender, label: 'Sexe' %>
+        <%= f.input :age, label: 'Age' %>
+        <%= f.input :favorite_food, label: 'Nourriture préférée' %>
+        <%= f.input :character, label: 'Caractère' %>
+        <%= f.input :address, label: 'Adresse' %>
+        <%= f.input :price, label: 'Prix par jour (€)' %>
+<!--         <%= f.input :picture %> -->
+        <%= f.input :instructions, label: 'Instructions' %>
+        <%= f.input :photo, label: 'Photo' %>
         <%= f.input :photo_cache, as: :hidden %>
-        <%= f.submit "add a pet", class: "btn btn-primary" %>
+        <%= f.submit "Enregistrer votre animal", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

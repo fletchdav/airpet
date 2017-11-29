@@ -1,0 +1,26 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1 class="text-center">Je mets à jour l'annonce de mon animal</h1>
+      <%= simple_form_for (@pet) do |f| %>
+        <%= f.input :title, label: 'Titre de votre annonce' %>
+        <%= f.input :name, label: "Nom de l'animal" %>
+        <%= f.input :description, label: "Description de l'animal" %>
+        <%= f.input :species, label: 'Espèce' %>
+        <%= f.input :gender, label: 'Sexe' %>
+        <%= f.input :age, label: 'Age' %>
+        <%= f.input :favorite_food, label: 'Nourriture préférée' %>
+        <%= f.input :character, label: 'Caractère' %>
+        <%= f.input :address, label: 'Adresse' %>
+        <%= f.input :price, label: 'Prix par jour (€)' %>
+<!--         <%= f.input :picture %> -->
+        <%= f.input :instructions, label: 'Instructions' %>
+<!--         <%= cl_image_path @pet.photo %> -->
+        <%= f.input :photo, label: 'Changer la photo' %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.submit "Mettre à jour l'annonce de votre animal", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
