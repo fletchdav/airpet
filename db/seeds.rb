@@ -88,6 +88,7 @@ pets.each do |pet|
     end
 
     pet.availability = false
+    pet.save
   end
 end
 

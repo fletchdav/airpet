@@ -54,8 +54,16 @@
   a {
     color: rgb(190,190,190);
     :hover {
-      color:rgb(130,130,130);
+      color:#FCCF4D;
     }
+  }
+  .green {
+    padding: 5px 0px;
+    color: #35c679;
+  }
+  .red {
+    padding: 5px 0px;
+    color: #ff552b;
   }
 }
 
