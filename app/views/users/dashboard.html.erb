@@ -19,42 +19,50 @@
   </div>
 
   <div class="container hidden" id="resa2">
-    <div class="resa">
-      <%= image_tag "avatar.png", class: "resa-avatar" %>
-      <div class="user-identity">
-        <h3>fletchdav@gmail.com</h3>
-        <p>29 novembre</p>
-      </div>
-      <div class="resa-details">
-        <div class="resa-details-pet">
-          <%= cl_image_tag "qravmzy6k7pcxo5dk7ay", class: "pet-image-small" %>
+    <% @bookings_o.each do |booking| %>
+      <div class="resa">
+        <%= cl_image_tag booking.user.picture, class: "resa-avatar" %>
+        <div class="user-identity">
+          <h3> <%= booking.user.email[0..15] %>... </h3>
+          <p> <%= booking.start_date %> </p>
         </div>
-        <div class="resa-details-dates">
-          <h3>Gaston</h3>
-          <p><strong>29 novembre - 10 décembre</strong></p>
-          <p>11 jours</p>
+        <div class="resa-details">
+          <div class="resa-details-pet">
+            <%= cl_image_tag booking.pet.photo, class: "pet-image-small" %>
+          </div>
+          <div class="resa-details-dates">
+            <h3><%= booking.pet.name %></h3>
+            <p><strong> <%= booking.start_date.strftime("%A, %b %d") %> <%= booking.end_date.strftime("%A, %b %d") %> </strong></p>
+            <p><%= (booking.end_date - booking.start_date).to_i %> jours</p>
+          </div>
+        </div>
+        <div class="resa-status">
+          <% if (booking.end_date - Date.today).to_i < 0 %>
+            <h3> Terminé </h3>
+          <% elsif booking.validated %>
+            <h3 class="validee"> Validée </h3>
+          <% else %>
+            <h3 class="attente"> En attente </h3>
+          <% end %>
+          <p>Prix total</p>
+          <p><strong><%= booking.total_price %> €</strong></p>
+        </div>
+        <div class="resa-actions">
+          <ul>
+            <li>
+              <%= link_to "" do %>
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "" do %>
+                <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+              <% end %>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="resa-status">
-        <h3>en attente</h3>
-        <p>Prix total</p>
-        <p><strong>189 €</strong></p>
-      </div>
-      <div class="resa-actions">
-        <ul>
-          <li>
-            <%= link_to "" do %>
-              <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "" do %>
-              <i class="fa fa-times-circle-o" aria-hidden="true"></i>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <% end %>
 </div>
 
 <div class="container hidden" id="pets">
