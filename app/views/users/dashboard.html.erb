@@ -5,11 +5,7 @@
         <h3>Mes adoptions</h3>
       </a>
       <a class="tab" id="tabresa2" href="#">
-          <% if @bookings_o_pending_count == 0 %>
-            <h3> Mes demandes </h3>
-          <% else %>
-            <h3 > Mes demandes (<%=@bookings_o_pending_count%>) </h3>
-          <% end %>
+        <h3>Mes demandes</h3>
       </a>
       <a class="tab active" id="tabpets" href="#">
         <h3>Mes animaux</h3>
@@ -61,7 +57,6 @@
 </div>
 
   <div class="container hidden" id="resa2">
-
     <% @bookings_o.each do |booking| %>
       <div class="resa">
         <%= cl_image_tag booking.user.picture, class: "resa-avatar" %>
@@ -92,7 +87,6 @@
         </div>
         <div class="resa-actions">
           <% unless booking.validated %>
-
                 <div class="btn-validate">
                 <%= link_to "valider", accept_path(booking.id), {method: :patch} %>
                 </div>
