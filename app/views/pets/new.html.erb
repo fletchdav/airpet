@@ -1,25 +1,72 @@
+<div class="background_picture" style="background-image: url('https://fr.cdn.v5.futura-sciences.com/buildsv6/images/wide1920/d/a/e/daee92f164_109680_chien-domestication-ami-homme.jpg')">
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1 class="text-center">J'ajoute mon animal</h1>
-      <%= simple_form_for (@pet) do |f| %>
-        <%= f.input :title, label: 'Titre de votre annonce' %>
-        <%= f.input :name, label: "Nom de l'animal" %>
-        <%= f.input :description, label: "Description de l'animal" %>
-        <%= f.input :species, label: 'Espèce' %>
-        <%= f.input :gender, label: 'Sexe' %>
-        <%= f.input :age, label: 'Age' %>
-        <%= f.input :favorite_food, label: 'Nourriture préférée' %>
-        <%= f.input :character, label: 'Caractère' %>
-        <%= f.input :address, label: 'Adresse' %>
-        <%= f.input :price, label: 'Prix par jour (€)' %>
-<!--         <%= f.input :picture %> -->
-        <%= f.input :instructions, label: 'Instructions' %>
-        <%= f.input :photo, label: 'Photo' %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= f.submit "Enregistrer votre animal", class: "btn btn-primary" %>
-      <% end %>
+  <div class="pet_form">
+    <div class="row">
+      <div class="col-xs-12 col-sm-9">
+        <div class="form-login">
+          <%= simple_form_for (@pet) do |f| %>
+            <div class="row">
+              <div class="col-xs-12">
+                <%= f.input :title, autofocus: true, placeholder: "Titre de votre annonce", label: false  %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :name, placeholder: "Nom de l'animal", label: false %>
+              </div>
+              <div class="col-xs-6">
+                <%= f.input :age, placeholder: 'Age', label: false %>
+              </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-6">
+                <%= f.input :description, placeholder: "Description de l'animal", label: false %>
+              </div>
+              <div class="col-xs-6">
+                <%= f.input :address, placeholder: 'Adresse', label: false %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :species, placeholder: 'Catégorie', label: false %>
+              </div>
+              <div class="col-xs-6">
+                <%= f.input :gender, placeholder: 'Sexe', label: false %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :character, placeholder: 'Caractère', label: false %>
+              </div>
+              <div class="col-xs-6">
+                <%= f.input :favorite_food, placeholder: 'Nourriture préférée', label: false %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :instructions, placeholder: 'Instructions', label: false %>
+              </div>
+              <div class="col-xs-6">
+                <%= f.input :price, placeholder: 'Prix par jour (€)', label: false %>
+              </div>
+            </div>
+            <div class="row">
+
+                <input type="button" class="button_photo col-xs-9" onclick="document.querySelector('#pet_photo').click()" value="Une petite photo pour finir!"></input>
+                <%= f.input :photo %>
+                <%= f.input :photo_cache, as: :hidden %>
+
+            </div>
+            <%= f.submit "J'AJOUTE MON ANIMAL", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class= "quote">
+    <h1>Les animaux ont plus d’amour et de compassion en eux que la plupart des hommes.</h1>
+    <h2>Robert Wagner</h2>
+  </div>
+
 </div>
