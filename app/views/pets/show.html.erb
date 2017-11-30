@@ -55,16 +55,14 @@
       <div class="listing-sidebar">
 
         <div class="side-quote-bar">
-          <% if @pet.availability %>
-            <h2 > Réserver <%=@pet.name%> </h2>
-            <%= simple_form_for [@pet, Booking.new] do |f| %>
-              <%= f.input :start_date, label: 'Date de début' %>
-              <%= f.input :end_date, label: 'Date de fin' %>
-              <%= f.submit "Réserver", class: "btn btn-dec" %>
-            <% end %>
-          <% else %>
-            <h2><%= @pet.name %> n'est pas disponible !</h2>
-            <%= link_to "Chercher un autre compagnon",pets_path, {class:"btn-dec"} %>
+          <h2 > Réserver <%=@pet.name%> </h2>
+          <%= simple_form_for [@pet, Booking.new] do |f| %>
+            <%= f.input :start_date, as: :string, label:false, required: true, placeholder: 'Date de début', input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, label:false, required: true, placeholder: 'Date de fin', input_html: {class: "datepicker"} %>
+<!--             171130 2 lignes suivantes conservees temporairement pour le cas ou l enregistrement des donnees collectees dans la base de donnees ne se ferait pas au format date. A supprimer si ok -->
+<!--             <%= f.input :start_date, label: 'Date de début' %>
+            <%= f.input :end_date, label: 'Date de fin' %> -->
+            <%= f.submit "Réserver", class: "btn btn-dec" %>
           <% end %>
         </div>
 
