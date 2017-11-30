@@ -1,11 +1,18 @@
 <div class="main_container">
-  <div class="cards">
+  <div class="container">
     <div class="row">
-      <% @pets.each do |pet| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', pet: pet %>
-        </div>
-      <% end %>
+      <div class="col-xs-12">
+        <input type="text" placeholder="Ex : panda paris" id="test_search" name="search" class="col-xs-12">
+      </div>
+    </div>
+    <div class="row">
+      <div id="cards">
+        <% @pets.each do |pet| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= render 'shared/card', pet: pet %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
