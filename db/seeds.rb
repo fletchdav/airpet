@@ -61,9 +61,10 @@ end
     address: new_address,
     price: rand(10..100),
     instructions: instruction.sample,
-    user_id: rand(1..User.all.length),
+    remote_photo_url: new_url,
+    user_id: rand(1..User.all.length)
   )
-  new_pet.remote_photo_url = new_url
+  # new_pet.remote_photo_url = new_url
   new_pet.save
 end
 
