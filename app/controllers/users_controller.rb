@@ -7,6 +7,7 @@ class UsersController < ApplicationController
       pet.bookings.each do |booking|
         @bookings_o << booking
       end
+      @bookings_o = @bookings_o.sort_by {|k| k["end_date"]}.reverse
     end
     authorize current_user
   end

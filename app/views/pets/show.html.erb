@@ -55,11 +55,16 @@
       <div class="listing-sidebar">
 
         <div class="side-quote-bar">
-          <h2 > Réserver <%=@pet.name%> </h2>
-          <%= simple_form_for [@pet, Booking.new] do |f| %>
-            <%= f.input :start_date, label: 'Date de début' %>
-            <%= f.input :end_date, label: 'Date de fin' %>
-            <%= f.submit "Réserver", class: "btn btn-dec" %>
+          <% if @pet.availability %>
+            <h2 > Réserver <%=@pet.name%> </h2>
+            <%= simple_form_for [@pet, Booking.new] do |f| %>
+              <%= f.input :start_date, label: 'Date de début' %>
+              <%= f.input :end_date, label: 'Date de fin' %>
+              <%= f.submit "Réserver", class: "btn btn-dec" %>
+            <% end %>
+          <% else %>
+            <h2><%= @pet.name %> n'est pas disponible !</h2>
+            <%= link_to "Chercher un autre compagnon",pets_path, {class:"btn-dec"} %>
           <% end %>
         </div>
 

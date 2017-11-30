@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   # def index
@@ -29,16 +28,18 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def edit
-  # end
+  def accept
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.validated = true
+    @booking.save
+    @booking.pet.availability = false
+      redirect_to users_dashboard_path
+  end
 
-  # def update
-  #   @Booking.update(booking_params)
-  #   redirect_to bookings_path
-  # end
 
   def destroy
-    @booking = booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
     redirect_to users_dashboard_path

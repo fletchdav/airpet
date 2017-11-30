@@ -1,0 +1,39 @@
+.adoption {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  h3 {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 40px;
+  }
+}
+
+.adoption:hover {
+  background: white;
+}
+
+.photos{
+  width: 150px;
+  height: 150px;
+  background-size: cover !important;
+  background-position: center;
+  position: relative;
+  border-radius: 10px;
+}
+
+.photos > .resa-avatar {
+  margin: 0px;
+  position: absolute;
+  top: 50px;
+  left: 120px;
+  border: 2px solid white;
+}
+
+.mail:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
