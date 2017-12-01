@@ -20,8 +20,8 @@
 
 <div class="container hidden" id="resa1">
   <h1>Adoptions en cours</h1>
-  <% @bookings_r.each do |booking| %>
-    <% if (booking.end_date - Date.today).to_i < 0 %>
+  <% @bookings_r.select{ |booking| booking.validated }.each do |booking| %>
+    <% if (booking.end_date - Date.today).to_i >= 0 %>
       <div class="adoption">
         <div class="photos" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path booking.pet.photo %>)")>
           <%= cl_image_tag booking.pet.user.picture, class: "resa-avatar " %>
@@ -33,7 +33,7 @@
         </div>
         <div class="time text-center">
           <h2> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> </h2>
-          <h3>Plus que <strong> <%= (Date.today - booking.end_date).to_i %> jours </strong> </h3>
+          <h3>Plus que <strong> <%= (booking.end_date - Date.today).to_i %> jours </strong> </h3>
           <h3> avant de le ramener !!</h3>
         </div>
       </div>
@@ -41,7 +41,7 @@
   <% end %>
   <h1>Adoptions passées</h1>
   <% @bookings_r.each do |booking| %>
-    <% if (booking.end_date - Date.today).to_i >= 0 %>
+    <% if (booking.end_date - Date.today).to_i < 0 %>
       <div class="adoption">
         <div class="photos" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path booking.pet.photo %>)")>
           <%= cl_image_tag booking.pet.user.picture, class: "resa-avatar " %>
@@ -61,7 +61,9 @@
 </div>
 
   <div class="container hidden" id="resa2">
-    <h1>Demanders à valider</h1>
+    <%if @bookings_o_tovalidate.length > 0 %>
+    <h1>Demandes à valider</h1>
+    <% end %>
     <% @bookings_o_tovalidate.each do |booking| %>
       <div class="resa">
         <%= cl_image_tag booking.user.picture, class: "resa-avatar" %>
