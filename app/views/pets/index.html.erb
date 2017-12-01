@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div id="cards">
-        <% @pets.each do |pet| %>
+        <% @pets.sort_by {|k| k["availability"] ? 0 : 1}.each do |pet| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <%= render 'shared/card', pet: pet %>
           </div>

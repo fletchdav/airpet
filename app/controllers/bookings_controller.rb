@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
     @booking.validated = true
     @booking.save
     @booking.pet.availability = false
+    @booking.pet.save
       redirect_to users_dashboard_path
   end
 
