@@ -1,7 +1,7 @@
 .background_picture {
   display: flex;
   justify-content: space-between;
-  padding: 45px;
+  height: calc(100vh - 70px);
   background-size: cover !important;
   }
 
@@ -11,6 +11,7 @@
 }
 
 .pet_form {
+  margin-top: 25px;
   flex: 0 0 40%;
   font-size: 12px;
   font-weight: bold;
