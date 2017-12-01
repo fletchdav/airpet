@@ -18,7 +18,7 @@
 /* Identity design */
 .user-identity {
   flex: 1 1 auto;
-  width: 100px;
+  width: 170px;
   h3 {
     font-weight: bold;
     font-size: 20px;
@@ -50,7 +50,6 @@
     margin-top: 0;
   }
 }
-
 
 .resa-details-dates {
     vertical-align: center;
@@ -91,18 +90,16 @@
 }
 
 .resa-actions {
-  ul {
-    list-style: none;
-  }
-  a {
-    padding: 0 20px;
-    font-size: 17px;
-    color: black;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100px;
+  height: 100px;
+  text-align: right;
+  margin-left: 20px;
 }
 
 /* Hover effects */
 .resa:hover {
   background: white;
-  cursor: pointer;
 }
