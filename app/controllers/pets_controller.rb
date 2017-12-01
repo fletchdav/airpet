@@ -29,10 +29,13 @@ class PetsController < ApplicationController
   end
 
   def create
+    # index = Algolia::Index.new("Pet")
     @pet = Pet.new(pet_params)
     authorize @pet
     @pet.user = current_user
     if @pet.save
+      # @pet.index!
+      Pet.reindex
       redirect_to pet_path(@pet)
     else
       render :new
