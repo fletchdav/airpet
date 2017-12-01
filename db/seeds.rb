@@ -73,8 +73,6 @@ end
   puts "#{new_pet["name"]} created!" if new_pet.valid?
 end
 
-Pet.reindex
-
 #generate bookings
 pets = Pet.all
 pets.each do |pet|

@@ -35,7 +35,7 @@ class PetsController < ApplicationController
     @pet.user = current_user
     if @pet.save
       # @pet.index!
-      Pet.reindex
+      # Pet.reindex
       redirect_to pet_path(@pet)
     else
       render :new
