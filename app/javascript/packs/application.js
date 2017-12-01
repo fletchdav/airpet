@@ -16,6 +16,3 @@ if (document.getElementById("test_search")) {
 if (document.getElementById("tabresa1")) {
   initDashboardNavigation();
 }
-
-initDashboardNavigation();
-setAlertsTimeouts();

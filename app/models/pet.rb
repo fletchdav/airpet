@@ -3,6 +3,7 @@ class Pet < ApplicationRecord
   belongs_to :user
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  # after_save :index!, if: :algolia_field_was_updated?
   has_many :bookings, dependent: :destroy
 
   include AlgoliaSearch
@@ -10,19 +11,23 @@ class Pet < ApplicationRecord
   include Rails.application.routes.url_helpers
 
   algoliasearch do
-    attribute :title, :name, :species, :character, :photo
+    attribute :title, :name, :species, :character
     searchableAttributes ['title', 'name', 'species', 'character']
-    add_attribute :path, :pic_path_owner, :availability_color
+    add_attribute :path, :cl_path_animal, :pic_path_owner, :availability_color
   end
+
+  # def algolia_field_was_updated
+  #   # TODO test if at least one field indexed by Algolia was updated
+  # end
 
   def path
     pet_path(self)
   end
 
-  # def cl_path_animal
-  #   cl_image_path self.photo unless self.photo.blank?
-  #   # return "http://res.cloudinary.com/dx5mytjh9/#{self.photo.file.identifier}"
-  # end
+  def cl_path_animal
+    this_pet = Pet.find(self.id)
+    cl_image_path this_pet.photo
+  end
 
   def pic_path_owner
     self.user.picture
