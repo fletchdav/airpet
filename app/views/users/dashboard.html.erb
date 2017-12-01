@@ -1,5 +1,5 @@
 <div class="dashboard-header-wrapper">
-  <div class="container dashboard-header-container text-center">
+  <div class="container dashboard-header-container text-center" id="dashboard-cont">
     <div class="tabs">
       <a class="tab" id="tabresa1" href="#">
         <h3>Mes adoptions</h3>
@@ -20,17 +20,17 @@
     <% if (booking.end_date - Date.today).to_i < 0 %>
       <div class="adoption">
         <div class="photos" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path booking.pet.photo %>)")>
-          <%= cl_image_tag booking.user.picture, class: "resa-avatar " %>
+          <%= cl_image_tag booking.pet.user.picture, class: "resa-avatar " %>
         </div>
         <div class="details text-center">
           <h2><i class="fa fa-envelope" aria-hidden="true"></i> </h2>
-          <h3> <strong> <%= booking.pet.name %></strong> est en vacances chez </h3>
-          <h3> <strong class="mail"> <%= booking.user.email %> </strong></h3>
+          <h3> Demander des informations à propos de <strong><%= booking.pet.name %></strong></h3>
+          <h3> à <strong class="mail"> <%= booking.pet.user.email %> </strong></h3>
         </div>
         <div class="time text-center">
           <h2> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> </h2>
           <h3>Plus que <strong> <%= (Date.today - booking.end_date).to_i %> jours </strong> </h3>
-          <h3> avant de le retrouver !!</h3>
+          <h3> avant de le ramener !!</h3>
         </div>
       </div>
     <% end %>
@@ -40,12 +40,12 @@
     <% if (booking.end_date - Date.today).to_i >= 0 %>
       <div class="adoption">
         <div class="photos" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path booking.pet.photo %>)")>
-          <%= cl_image_tag booking.user.picture, class: "resa-avatar " %>
+          <%= cl_image_tag booking.pet.user.picture, class: "resa-avatar " %>
         </div>
         <div class="details text-center">
           <h2><i class="fa fa-envelope" aria-hidden="true"></i> </h2>
-          <h3> <strong> <%= booking.pet.name %></strong> était en vacances chez </h3>
-          <h3> <strong class="mail"> <%= booking.user.email %> </strong></h3>
+          <h3>  Recontacter <strong class="mail"> <%= booking.pet.user.email %> </strong></h3>
+          <h3>à propos de <strong> <%= booking.pet.name %></strong></h3>
         </div>
         <div class="time text-center">
           <h2> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> </h2>
@@ -57,7 +57,8 @@
 </div>
 
   <div class="container hidden" id="resa2">
-    <% @bookings_o.each do |booking| %>
+    <h1>Demanders à valider</h1>
+    <% @bookings_o_tovalidate.each do |booking| %>
       <div class="resa">
         <%= cl_image_tag booking.user.picture, class: "resa-avatar" %>
         <div class="user-identity">
@@ -97,6 +98,47 @@
         </div>
       </div>
     <% end %>
+    <h1>Demandes traitées</h1>
+      <% @bookings_o_other.each do |booking| %>
+        <div class="resa">
+          <%= cl_image_tag booking.user.picture, class: "resa-avatar" %>
+          <div class="user-identity">
+            <h3> <%= booking.user.email[0..15] %>... </h3>
+            <p> <%= booking.start_date %> </p>
+          </div>
+          <div class="resa-details">
+            <div class="resa-details-pet">
+              <%= cl_image_tag booking.pet.photo, class: "pet-image-small" %>
+            </div>
+            <div class="resa-details-dates">
+              <h3><%= booking.pet.name %></h3>
+              <p><strong> <%= booking.start_date.strftime("%A, %b %d") %> <%= booking.end_date.strftime("%A, %b %d") %> </strong></p>
+              <p><%= (booking.end_date - booking.start_date).to_i %> jours</p>
+            </div>
+          </div>
+          <div class="resa-status">
+            <% if (booking.end_date - Date.today).to_i < 0 %>
+              <h3> Terminée </h3>
+            <% elsif booking.validated %>
+              <h3 class="validee"> Validée </h3>
+            <% else %>
+              <h3 class="attente"> En attente </h3>
+            <% end %>
+            <p>Prix total</p>
+            <p><strong><%= booking.total_price %> €</strong></p>
+          </div>
+          <div class="resa-actions">
+            <% unless booking.validated %>
+                  <div class="btn-validate">
+                  <%= link_to "valider", accept_path(booking.id), {method: :patch} %>
+                  </div>
+                  <div class="btn-decline">
+                  <%= link_to "refuser", booking_path(booking.id), {method: :delete} %>
+                  </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 </div>
 
 <div class="container" id="pets">
