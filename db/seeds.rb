@@ -24,6 +24,11 @@ instruction = ["Nourrir matin midi et soir","Sortir le matin pour une petite pro
 
 address_paris = ["6 rue La Boétie, Paris","3 Place de la Madeleine, Paris","27 Square de la Couronne, Paris","120 rue Oberkampf, Paris","37 Rue des Volontaires, Paris","66 Rue des Cévennes, Paris","86 Rue de Miromesnil, Paris","75 Rue Caulaincourt, Paris","22 Avenue de Choisy, Paris","61 Rue de la Grange aux Belles, Paris","89 Rue Haxo, Paris","22 Rue Myrha, Paris","96 Rue de Rivoli, Paris","204 Bis Rue de la Croix Nivert, Paris","69 Avenue Victor Hugo, Paris","29 Avenue du Général Leclerc, Paris","20 Rue de l'Est, Paris","39 Rue des Lilas, Paris","107 Avenue du Général Michel Bizot, Paris"]
 
+# destroy all
+# Booking.destroy_all
+# Pet.destroy_all
+# User.destroy_all
+
 #generate users
 User.create(
   email: "fletchdav@gmail.com",
@@ -61,11 +66,14 @@ end
     address: new_address,
     price: rand(10..100),
     instructions: instruction.sample,
-    user_id: rand(1..User.all.length),
+    remote_photo_url: new_url,
+    user_id: rand(1..User.all.length)
   )
-  new_pet.remote_photo_url = new_url
   new_pet.save
+  puts "#{new_pet["name"]} created!" if new_pet.valid?
 end
+
+Pet.reindex
 
 #generate bookings
 pets = Pet.all
@@ -91,4 +99,3 @@ pets.each do |pet|
     pet.save
   end
 end
-
