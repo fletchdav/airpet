@@ -20,6 +20,8 @@ class Pet < ApplicationRecord
   end
 
   def cl_path_animal
+    p self
+    p self.photo.path
     cl_image_path self.photo
   end
 
