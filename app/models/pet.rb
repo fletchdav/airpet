@@ -10,7 +10,7 @@ class Pet < ApplicationRecord
   include CloudinaryHelper
   include Rails.application.routes.url_helpers
 
-  algoliasearch do
+  algoliasearch index_name: "#{self}#{ENV['ALGOLIA_INDEX_SUFFIX']}" do
     attribute :title, :name, :species, :character
     searchableAttributes ['title', 'name', 'species', 'character']
     add_attribute :path, :cl_path_animal, :pic_path_owner, :availability_color

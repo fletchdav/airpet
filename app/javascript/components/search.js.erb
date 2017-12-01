@@ -1,7 +1,7 @@
 function search() {
   var client = algoliasearch("<%= ENV['ALGOLIA_APPLICATION_ID'] %>" , "<%= ENV['ALGOLIA_SEARCH_ONLY_KEY'] %>" );
   // var index = client.initIndex('Pet');
-  var index = client.initIndex('Pet<%= ENV['ALGOLIA_INDEX_SUFFIX'] %>');
+  var index = client.initIndex("Pet<%= ENV['ALGOLIA_INDEX_SUFFIX'] %>");
   document.getElementById("test_search").addEventListener("keyup", (event) => {
     const query = document.getElementById("test_search").value;
     index.search(query, { hitsPerPage: 24, page: 0 })
