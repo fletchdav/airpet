@@ -83,7 +83,7 @@ pets.each do |pet|
     start_date = Date.new(2017, 4, rand(20) + 1)
     end_date = start_date + rand(7) + 1
     total_price = pet.price * (end_date - start_date).to_i
-    validated = rand < 0.5 ? false : true
+    validated = true
     Booking.create(pet: pet, user: user, start_date: start_date, end_date: end_date, total_price: total_price, validated: validated)
 
     for i in (1..3) do

@@ -32,3 +32,44 @@
   text-decoration: none;
   color: white;
 }
+
+.btn-validate {
+  border-radius: 4px;
+  background: green;
+  transition: background 0.3s ease;
+  opacity: 0.9;
+  text-align: center;
+  padding: 10px 0px;
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+.btn-validate:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-decline {
+  border-radius: 4px;
+  background: red;
+  transition: background 0.3s ease;
+  opacity: 0.9;
+  text-align: center;
+  padding: 10px 0px;
+  a {
+  color: white;
+  font-weight: lighter;
+  text-decoration: none;
+  }
+
+}
+
+.btn-decline:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+}
